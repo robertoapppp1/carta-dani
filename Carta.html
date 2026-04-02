@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Carta para Dani ✨</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+    overflow: hidden;
+}
+
+.screen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.box {
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(12px);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+button {
+    padding: 12px 25px;
+    margin: 10px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+.yes {
+    background: linear-gradient(45deg, #ff4d6d, #ff758f);
+    color: white;
+}
+
+.no {
+    background: #555;
+    color: white;
+    position: relative;
+}
+
+.envelope {
+    width: 260px;
+    height: 180px;
+    position: relative;
+    cursor: pointer;
+}
+
+.base {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border-radius: 10px;
+}
+
+.flap {
+    width: 100%;
+    height: 100%;
+    background: #f8e1e7;
+    position: absolute;
+    clip-path: polygon(0 0, 50% 50%, 100% 0);
+    transform-origin: top;
+    transition: transform 1s ease;
+}
+
+.letter {
+    position: absolute;
+    width: 900px;
+    height: 520px;
+    background: #fffdf7;
+    top: -260px;
+    left: -320px;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    transform: translateY(120%);
+    transition: transform 1s ease;
+    opacity: 0;
+}
+
+.content {
+    display: flex;
+    height: 100%;
+    gap: 15px;
+}
+
+.side {
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.top-photos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* 🔥 AQUÍ ESTÁ LA CORRECCIÓN */
+.side img {
+    width: 100%;
+    height: 120px; /* más grande */
+    object-fit: contain; /* NO recorta */
+    border-radius: 10px;
+    background: white;
+    padding: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.text {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.text h1 {
+    text-align: center;
+    color: #ff4d6d;
+}
+
+.text p {
+    color: #444;
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+.firma {
+    text-align: right;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.open .flap {
+    transform: rotateX(180deg);
+}
+
+.open .letter {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* partículas */
+.particle {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: float linear infinite;
+}
+
+@keyframes float {
+    to {
+        transform: translateY(-100vh);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="start" class="screen">
+    <div class="box">
+        <h2>✨ Tengo algo especial para ti</h2>
+        <p>¿Quieres ver la carta?</p>
+        <button class="yes" onclick="goEnvelope()">Sí bro</button>
+        <button class="no" id="noBtn">No bro</button>
+    </div>
+</div>
+
+<div id="envelopeScreen" class="screen hidden">
+    <div class="envelope" onclick="openLetter()" id="env">
+        <div class="base"></div>
+        <div class="flap"></div>
+
+        <div class="letter">
+            <div class="content">
+
+                <div class="side">
+                    <div class="top-photos">
+                        <img src="foto 1.png">
+                        <img src="foto 2.png">
+                    </div>
+                    <img src="foto 5.png">
+                </div>
+
+                <div class="text">
+                    <h1>🎂 Felices 18, Dani 🥳🤍</h1>
+
+                    <p>Espero que esta nueva etapa de tu vida esté llena de cosas buenas y de vibras positivas; lo mereces. Eres una gran persona y alguien muy especial.</p>
+
+                    <p>Quiero que nunca olvides lo valiosa que eres en todos los sentidos: como mujer y como amiga. Tienes una esencia muy bonita y mereces todo lo bueno que la vida puede darte.</p>
+
+                    <p>Gracias por estos 3 años de amistad. Valoro mucho la relación que tenemos; nunca imaginé que llegaríamos a llevarnos tan bien. A pesar de la distancia, eres cercana a mí. Eres mi mejor amiga y la amistad más bonita que tengo.</p>
+
+                    <p>Me encanta cómo funciona nuestra amistad; eres una curita al corazón.</p>
+
+                    <p>Gracias por darme tu tiempo, tu confianza y tu amistad; por abrir tus emociones y compartir tus sentimientos conmigo. Valoro cada detalle de tu vida que me permites conocer.</p>
+
+                    <p>Espero que sigamos siendo mejores amigos por mucho tiempo. Siempre voy a estar para ti y no te voy a fallar. En los momentos buenos y en los difíciles, tendrás a alguien en quien apoyarte. Siempre vas a tener un lugar seguro. No importa el tiempo ni la distancia, aquí me tienes. Pase lo que pase, voy a escucharte, porque eres importante para mí.</p>
+
+                    <p>Disfruta tu día y esta nueva etapa que comienza hoy. Ama, vive, aprende y conoce; no permitas que nada ni nadie arruine tu momento. Confía en ti; no importa qué tan difícil se ponga la vida, lucha por lo que sueñas. Sé que tienes la capacidad de lograr todo lo que te propongas.</p>
+
+                    <p class="firma">Atentamente: Ma Me Mi Mo Mu</p>
+                </div>
+
+                <div class="side">
+                    <div class="top-photos">
+                        <img src="foto 3.png">
+                        <img src="foto 4.png">
+                    </div>
+                    <img src="foto 6.png">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function goEnvelope() {
+    document.getElementById("start").classList.add("hidden");
+    document.getElementById("envelopeScreen").classList.remove("hidden");
+}
+
+function openLetter() {
+    document.getElementById("env").classList.add("open");
+}
+
+const btn = document.getElementById("noBtn");
+btn.addEventListener("mouseover", () => {
+    btn.style.position = "absolute";
+    btn.style.top = Math.random() * 80 + "%";
+    btn.style.left = Math.random() * 80 + "%";
+});
+
+for (let i = 0; i < 40; i++) {
+    let p = document.createElement("div");
+    p.classList.add("particle");
+    p.style.left = Math.random() * 100 + "vw";
+    p.style.animationDuration = (Math.random() * 5 + 5) + "s";
+    document.body.appendChild(p);
+}
+</script>
+
+</body>
+</html>
